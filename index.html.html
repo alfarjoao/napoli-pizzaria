@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Napoli Pizzaria - Autêntica pizza italiana em Tagus. Forno a lenha tradicional, ingredientes frescos desde 2010.">
     <title>Napoli Pizzaria Restaurante | Tagus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
 
@@ -42,16 +45,16 @@
             left: 0;
             right: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(20px);
             z-index: 9999;
-            padding: 24px 60px;
+            padding: 20px 60px;
             border-bottom: 1px solid rgba(232, 232, 232, 0.5);
-            transition: padding 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .navbar.scrolled {
-            padding: 16px 60px;
+            padding: 14px 60px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
 
@@ -70,6 +73,7 @@
             color: #D4332A;
             text-decoration: none;
             transition: transform 0.2s ease;
+            z-index: 10001;
         }
 
         .logo:hover {
@@ -113,7 +117,6 @@
             width: 100%;
         }
 
-        /* ✅ BOTÃO CTA CORRIGIDO - SEM BUGS */
         .nav-cta {
             background: #D4332A;
             color: #FFFFFF !important;
@@ -135,13 +138,42 @@
             color: #FFFFFF !important;
         }
 
+        /* MOBILE MENU */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 10001;
+        }
+
+        .mobile-menu-toggle span {
+            width: 28px;
+            height: 3px;
+            background: #2D2D2D;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+
         /* HERO */
         .hero {
             width: 100%;
             height: 100vh;
-            min-height: 700px;
-            background: linear-gradient(135deg, rgba(28, 28, 28, 0.5) 0%, rgba(28, 28, 28, 0.3) 100%),
-                        url('https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1920&q=90') center center/cover no-repeat;
+            min-height: 600px;
+            background: linear-gradient(135deg, rgba(28, 28, 28, 0.6) 0%, rgba(28, 28, 28, 0.4) 100%),
+                        url('https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1920&q=85') center center/cover no-repeat;
             background-attachment: fixed;
             display: flex;
             align-items: center;
@@ -154,36 +186,39 @@
 
         .hero-inner {
             max-width: 1000px;
-            padding: 0 60px;
+            padding: 0 40px;
             position: relative;
             z-index: 2;
             animation: fadeInUp 1s ease;
         }
 
         .hero h1 {
-            font-size: 96px;
+            font-size: clamp(48px, 8vw, 96px);
             font-weight: 700;
-            margin-bottom: 32px;
-            letter-spacing: -3px;
+            margin-bottom: 24px;
+            letter-spacing: -2px;
         }
 
         .hero p {
-            font-size: 20px;
-            margin-bottom: 48px;
+            font-size: clamp(16px, 2.5vw, 20px);
+            margin-bottom: 40px;
             font-weight: 300;
             line-height: 1.8;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 24px;
+            gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
         }
 
         /* BOTÕES */
         .btn {
-            padding: 18px 48px;
+            padding: 16px 40px;
             border-radius: 2px;
             text-decoration: none;
             font-weight: 600;
@@ -192,6 +227,7 @@
             text-transform: uppercase;
             display: inline-block;
             transition: all 0.2s ease;
+            text-align: center;
         }
 
         .btn-primary {
@@ -203,6 +239,7 @@
         .btn-primary:hover {
             background: #B02923;
             transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 51, 42, 0.4);
         }
 
         .btn-secondary {
@@ -220,31 +257,31 @@
         /* FLOATING BADGE */
         .floating-badge {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 24px;
+            right: 24px;
             background: #FFFFFF;
             color: #2D2D2D;
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 700;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
             z-index: 9998;
             cursor: pointer;
             transition: transform 0.3s ease;
         }
 
         .floating-badge:hover {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
 
         .floating-badge .rating {
-            font-size: 28px;
+            font-size: 24px;
             line-height: 1;
             margin-bottom: 4px;
             color: #D4332A;
@@ -252,10 +289,10 @@
         }
 
         .floating-badge .source {
-            font-size: 11px;
+            font-size: 10px;
             color: #6B6B6B;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
 
         /* SCROLL REVEAL */
@@ -273,7 +310,7 @@
         /* ABOUT */
         .about {
             width: 100%;
-            padding: 140px 60px;
+            padding: 120px 60px;
             background: #FFFFFF;
         }
 
@@ -282,7 +319,7 @@
             margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 100px;
+            gap: 80px;
             align-items: center;
         }
 
@@ -290,11 +327,13 @@
             position: relative;
             overflow: hidden;
             border-radius: 2px;
+            height: 100%;
+            min-height: 500px;
         }
 
         .about-image {
             width: 100%;
-            height: 700px;
+            height: 100%;
             object-fit: cover;
             transition: transform 0.6s ease;
         }
@@ -309,33 +348,33 @@
             right: 20px;
             background: #D4332A;
             color: white;
-            padding: 20px 30px;
+            padding: 16px 24px;
             border-radius: 2px;
             font-family: 'Cormorant Garamond', serif;
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 700;
             box-shadow: 0 8px 30px rgba(0,0,0,0.2);
         }
 
         .about-content h2 {
-            font-size: 64px;
+            font-size: clamp(36px, 5vw, 64px);
             margin-bottom: 28px;
             color: #1C1C1C;
         }
 
         .about-content p {
-            font-size: 17px;
-            line-height: 2;
+            font-size: 16px;
+            line-height: 1.9;
             color: #6B6B6B;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             font-weight: 300;
         }
 
         .about-features {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 32px;
-            margin-top: 56px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
         }
 
         .feature {
@@ -365,7 +404,7 @@
         }
 
         .feature h4 {
-            font-size: 18px;
+            font-size: 17px;
             color: #1C1C1C;
             margin-bottom: 8px;
         }
@@ -379,7 +418,7 @@
         /* TEAM SECTION */
         .team {
             width: 100%;
-            padding: 140px 60px;
+            padding: 120px 60px;
             background: #FFFFFF;
         }
 
@@ -391,25 +430,25 @@
         .team-header {
             text-align: center;
             max-width: 900px;
-            margin: 0 auto 80px;
+            margin: 0 auto 60px;
         }
 
         .team-header h2 {
-            font-size: 64px;
+            font-size: clamp(36px, 5vw, 64px);
             color: #1C1C1C;
-            margin-bottom: 28px;
+            margin-bottom: 20px;
         }
 
         .team-header p {
-            font-size: 18px;
+            font-size: 17px;
             color: #6B6B6B;
-            line-height: 1.9;
+            line-height: 1.8;
         }
 
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 48px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 40px;
         }
 
         .team-card {
@@ -426,7 +465,7 @@
             height: 320px;
             border-radius: 2px;
             overflow: hidden;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             position: relative;
         }
 
@@ -446,8 +485,8 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(212,51,42,0.9), transparent);
-            padding: 24px;
+            background: linear-gradient(to top, rgba(212,51,42,0.95), transparent);
+            padding: 20px;
             transform: translateY(100%);
             transition: transform 0.3s ease;
         }
@@ -481,13 +520,13 @@
         }
 
         .team-card h3 {
-            font-size: 24px;
+            font-size: 22px;
             color: #1C1C1C;
             margin-bottom: 8px;
         }
 
         .team-card .role {
-            font-size: 14px;
+            font-size: 13px;
             color: #D4332A;
             font-weight: 600;
             text-transform: uppercase;
@@ -504,7 +543,7 @@
         /* STATS */
         .stats {
             width: 100%;
-            padding: 100px 60px;
+            padding: 80px 40px;
             background: linear-gradient(135deg, #D4332A 0%, #B22222 100%);
             color: white;
         }
@@ -513,8 +552,8 @@
             max-width: 1440px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 48px;
         }
 
         .stat-item {
@@ -530,24 +569,24 @@
         }
 
         .stat-number {
-            font-size: 72px;
+            font-size: clamp(48px, 6vw, 72px);
             font-weight: 700;
             font-family: 'Cormorant Garamond', serif;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             line-height: 1;
         }
 
         .stat-label {
-            font-size: 16px;
+            font-size: 14px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             font-weight: 600;
         }
 
         /* MENU */
         .menu {
             width: 100%;
-            padding: 140px 60px;
+            padding: 120px 60px;
             background: #FAF8F5;
         }
 
@@ -559,37 +598,37 @@
         .menu-header {
             text-align: center;
             max-width: 900px;
-            margin: 0 auto 60px;
+            margin: 0 auto 48px;
         }
 
         .menu-header h2 {
-            font-size: 64px;
+            font-size: clamp(36px, 5vw, 64px);
             color: #1C1C1C;
-            margin-bottom: 28px;
+            margin-bottom: 20px;
         }
 
         .menu-header p {
-            font-size: 18px;
+            font-size: 17px;
             color: #6B6B6B;
-            line-height: 1.9;
+            line-height: 1.8;
         }
 
         .menu-tabs {
             display: flex;
             justify-content: center;
-            gap: 24px;
-            margin-bottom: 60px;
+            gap: 16px;
+            margin-bottom: 48px;
             flex-wrap: wrap;
         }
 
         .menu-tab {
-            padding: 14px 32px;
+            padding: 12px 28px;
             background: #FFFFFF;
             border: 2px solid #E8E8E8;
             border-radius: 2px;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             text-transform: uppercase;
             cursor: pointer;
             transition: all 0.2s ease;
@@ -617,8 +656,8 @@
 
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 48px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 36px;
         }
 
         .menu-card {
@@ -638,7 +677,7 @@
         .menu-card-image-wrapper {
             position: relative;
             overflow: hidden;
-            height: 320px;
+            height: 280px;
         }
 
         .menu-card img {
@@ -658,22 +697,22 @@
             right: 16px;
             background: #D4332A;
             color: white;
-            padding: 8px 16px;
+            padding: 6px 14px;
             border-radius: 20px;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
 
         .menu-card-content {
-            padding: 36px;
+            padding: 28px;
         }
 
         .menu-card h3 {
-            font-size: 28px;
+            font-size: 24px;
             color: #1C1C1C;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             transition: color 0.2s ease;
         }
 
@@ -682,23 +721,23 @@
         }
 
         .menu-card .price {
-            font-size: 32px;
+            font-size: 28px;
             color: #D4332A;
             font-weight: 700;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             display: block;
         }
 
         .menu-card p {
             color: #6B6B6B;
-            font-size: 15px;
-            line-height: 1.8;
+            font-size: 14px;
+            line-height: 1.7;
         }
 
         /* EXPERIENCE */
         .experience {
             width: 100%;
-            padding: 140px 60px;
+            padding: 120px 60px;
             background: #1C1C1C;
             color: #FFFFFF;
         }
@@ -711,30 +750,30 @@
         .experience-header {
             text-align: center;
             max-width: 900px;
-            margin: 0 auto 80px;
+            margin: 0 auto 60px;
         }
 
         .experience-header h2 {
-            font-size: 64px;
+            font-size: clamp(36px, 5vw, 64px);
             color: #FFFFFF;
-            margin-bottom: 28px;
+            margin-bottom: 20px;
         }
 
         .experience-header p {
-            font-size: 18px;
+            font-size: 17px;
             color: rgba(255, 255, 255, 0.75);
-            line-height: 1.9;
+            line-height: 1.8;
         }
 
         .experience-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 56px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 40px;
         }
 
         .experience-card {
             text-align: center;
-            padding: 40px;
+            padding: 36px 24px;
             background: rgba(255,255,255,0.05);
             border-radius: 8px;
             border: 1px solid rgba(255,255,255,0.1);
@@ -748,11 +787,11 @@
         }
 
         .experience-icon {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             background: linear-gradient(135deg, #D4332A, #B22222);
             border-radius: 50%;
-            margin: 0 auto 28px;
+            margin: 0 auto 24px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -764,21 +803,21 @@
         }
 
         .experience-icon svg {
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             fill: #FFFFFF;
         }
 
         .experience-card h3 {
-            font-size: 22px;
-            margin-bottom: 16px;
+            font-size: 20px;
+            margin-bottom: 12px;
             color: #FFFFFF;
         }
 
         .experience-card p {
             color: rgba(255, 255, 255, 0.7);
-            line-height: 1.8;
-            font-size: 15px;
+            line-height: 1.7;
+            font-size: 14px;
         }
 
         /* GALLERY */
@@ -788,13 +827,13 @@
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 0;
         }
 
         .gallery-item {
             width: 100%;
-            height: 400px;
+            height: 350px;
             overflow: hidden;
             position: relative;
             cursor: pointer;
@@ -824,7 +863,7 @@
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 700;
         }
 
@@ -832,10 +871,10 @@
             opacity: 1;
         }
 
-        /* TESTIMONIALS - CORRIGIDO */
+        /* TESTIMONIALS */
         .testimonials {
             width: 100%;
-            padding: 140px 60px 180px;
+            padding: 120px 60px 160px;
             background: #FAF8F5;
         }
 
@@ -846,11 +885,11 @@
 
         .testimonials-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 48px;
         }
 
         .testimonials-header h2 {
-            font-size: 64px;
+            font-size: clamp(36px, 5vw, 64px);
             color: #1C1C1C;
             margin-bottom: 20px;
         }
@@ -859,51 +898,52 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 16px;
+            gap: 14px;
             margin-bottom: 12px;
+            flex-wrap: wrap;
         }
 
         .google-logo {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
             color: #4285F4;
         }
 
         .overall-rating {
-            font-size: 48px;
+            font-size: 42px;
             font-weight: 700;
             color: #1C1C1C;
         }
 
         .stars-large {
             display: flex;
-            gap: 4px;
+            gap: 3px;
             color: #FBBC04;
-            font-size: 32px;
+            font-size: 28px;
         }
 
         .review-count {
             color: #6B6B6B;
-            font-size: 16px;
+            font-size: 15px;
         }
 
         .reviews-carousel-container {
             position: relative;
-            overflow: visible;
-            margin-top: 40px;
+            overflow: hidden;
+            margin-top: 36px;
             padding: 20px 0;
         }
 
         .reviews-carousel {
             display: flex;
-            gap: 32px;
+            gap: 28px;
             transition: transform 0.4s ease;
         }
 
         .review-card {
-            min-width: calc(33.333% - 22px);
+            min-width: calc(33.333% - 19px);
             background: #FFFFFF;
-            padding: 32px;
+            padding: 28px;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             border: 1px solid #E8E8E8;
@@ -922,13 +962,13 @@
         .review-header {
             display: flex;
             align-items: center;
-            gap: 16px;
-            margin-bottom: 20px;
+            gap: 14px;
+            margin-bottom: 16px;
         }
 
         .reviewer-avatar {
-            width: 48px;
-            height: 48px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             background: linear-gradient(135deg, #D4332A, #B22222);
             display: flex;
@@ -936,12 +976,12 @@
             justify-content: center;
             color: white;
             font-weight: 700;
-            font-size: 18px;
+            font-size: 16px;
             flex-shrink: 0;
         }
 
         .reviewer-info h4 {
-            font-size: 16px;
+            font-size: 15px;
             color: #1C1C1C;
             margin-bottom: 4px;
             font-family: 'Montserrat', sans-serif;
@@ -952,20 +992,20 @@
             display: flex;
             gap: 2px;
             color: #FBBC04;
-            font-size: 16px;
+            font-size: 14px;
         }
 
         .review-date {
             color: #6B6B6B;
-            font-size: 13px;
-            margin-top: 4px;
+            font-size: 12px;
+            margin-top: 2px;
         }
 
         .review-text {
             color: #2D2D2D;
-            font-size: 15px;
+            font-size: 14px;
             line-height: 1.7;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
         }
 
         .google-badge {
@@ -973,25 +1013,25 @@
             align-items: center;
             gap: 6px;
             color: #6B6B6B;
-            font-size: 12px;
+            font-size: 11px;
         }
 
         .google-badge svg {
-            width: 14px;
-            height: 14px;
+            width: 13px;
+            height: 13px;
             fill: currentColor;
         }
 
         .carousel-controls {
             display: flex;
             justify-content: center;
-            gap: 16px;
-            margin-top: 40px;
+            gap: 14px;
+            margin-top: 36px;
         }
 
         .carousel-btn {
-            width: 48px;
-            height: 48px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             background: #FFFFFF;
             border: 2px solid #E8E8E8;
@@ -1000,7 +1040,7 @@
             justify-content: center;
             cursor: pointer;
             transition: all 0.2s ease;
-            font-size: 20px;
+            font-size: 18px;
             color: #2D2D2D;
         }
 
@@ -1018,7 +1058,7 @@
         /* LOCATION */
         .location {
             width: 100%;
-            padding: 140px 60px;
+            padding: 120px 60px;
             background: #FFFFFF;
         }
 
@@ -1030,37 +1070,42 @@
         .location-header {
             text-align: center;
             max-width: 900px;
-            margin: 0 auto 80px;
+            margin: 0 auto 60px;
         }
 
         .location-header h2 {
-            font-size: 64px;
+            font-size: clamp(36px, 5vw, 64px);
             color: #1C1C1C;
-            margin-bottom: 28px;
+            margin-bottom: 20px;
         }
 
         .location-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: start;
         }
 
         .location-info h3 {
-            font-size: 24px;
+            font-size: 22px;
             color: #1C1C1C;
             margin-bottom: 12px;
+            margin-top: 32px;
+        }
+
+        .location-info h3:first-child {
+            margin-top: 0;
         }
 
         .location-info p {
-            font-size: 16px;
+            font-size: 15px;
             color: #6B6B6B;
-            line-height: 1.9;
-            margin-bottom: 48px;
+            line-height: 1.8;
         }
 
         .location-map {
             width: 100%;
-            height: 600px;
+            height: 500px;
             background: #E5E5E5;
             border-radius: 2px;
             display: flex;
@@ -1068,6 +1113,7 @@
             justify-content: center;
             color: #6B6B6B;
             transition: all 0.3s ease;
+            font-size: 18px;
         }
 
         .location-map:hover {
@@ -1077,29 +1123,30 @@
         /* CTA */
         .cta {
             width: 100%;
-            padding: 160px 60px;
+            padding: 120px 60px;
             background: linear-gradient(135deg, #D4332A 0%, #B22222 100%);
             text-align: center;
             color: #FFFFFF;
         }
 
         .cta h2 {
-            font-size: 64px;
-            margin-bottom: 28px;
+            font-size: clamp(36px, 5vw, 64px);
+            margin-bottom: 24px;
             color: #FFFFFF;
         }
 
         .cta p {
-            font-size: 20px;
-            margin-bottom: 48px;
+            font-size: clamp(16px, 2.5vw, 20px);
+            margin-bottom: 40px;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.7;
         }
 
         .cta-buttons {
             display: flex;
-            gap: 24px;
+            gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
         }
@@ -1119,7 +1166,7 @@
         /* FOOTER */
         footer {
             width: 100%;
-            padding: 100px 60px 48px;
+            padding: 80px 60px 40px;
             background: #1C1C1C;
             color: rgba(255, 255, 255, 0.75);
         }
@@ -1131,29 +1178,28 @@
 
         .footer-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 80px;
-            margin-bottom: 80px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 48px;
+            margin-bottom: 60px;
         }
 
         .footer-section h3 {
             color: #FFFFFF;
-            font-size: 24px;
-            margin-bottom: 28px;
+            font-size: 20px;
+            margin-bottom: 20px;
         }
 
         .footer-section p {
-            line-height: 1.9;
-            margin-bottom: 24px;
-            font-size: 15px;
+            line-height: 1.8;
+            font-size: 14px;
         }
 
         .footer-bottom {
-            padding-top: 48px;
+            padding-top: 40px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
             color: rgba(255, 255, 255, 0.5);
-            font-size: 14px;
+            font-size: 13px;
         }
 
         /* ANIMATIONS */
@@ -1173,40 +1219,241 @@
             }
         }
 
-        /* RESPONSIVE */
-        @media (max-width: 968px) {
-            .nav-links { display: none; }
-            .hero h1 { font-size: 56px; }
-            .about-inner { grid-template-columns: 1fr; }
-            .menu-grid { grid-template-columns: repeat(2, 1fr); }
-            .stats-inner { grid-template-columns: repeat(2, 1fr); }
-            .team-grid { grid-template-columns: repeat(2, 1fr); }
-            .experience-grid { grid-template-columns: repeat(2, 1fr); }
-            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-            .review-card { min-width: calc(50% - 16px); }
-            .location-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr; }
+        /* RESPONSIVE - TABLET */
+        @media (max-width: 1024px) {
+            .navbar {
+                padding: 18px 40px;
+            }
+            
+            .navbar.scrolled {
+                padding: 14px 40px;
+            }
+
+            .nav-links {
+                gap: 32px;
+            }
+
+            .about-inner,
+            .location-grid {
+                gap: 60px;
+            }
+
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .experience-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .review-card {
+                min-width: calc(50% - 14px);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
-        @media (max-width: 640px) {
-            .navbar { padding: 24px; }
-            .hero, .about, .team, .menu, .experience, .testimonials, .location, .cta, footer {
+        /* RESPONSIVE - MOBILE */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 18px 24px;
+            }
+
+            .navbar.scrolled {
+                padding: 14px 24px;
+            }
+
+            .logo {
+                font-size: 28px;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: center;
+                padding: 80px 40px;
+                gap: 32px;
+                transition: right 0.4s ease;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-links li a:not(.nav-cta) {
+                font-size: 18px;
+                display: block;
+                padding: 12px 0;
+            }
+
+            .nav-cta {
+                padding: 16px 40px;
+                font-size: 14px;
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .hero {
+                margin-top: 70px;
+                min-height: 500px;
+                background-attachment: scroll;
+            }
+
+            .hero-inner {
+                padding: 0 24px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn {
+                width: 100%;
+                padding: 16px 32px;
+            }
+
+            .floating-badge {
+                width: 60px;
+                height: 60px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .floating-badge .rating {
+                font-size: 20px;
+            }
+
+            .floating-badge .source {
+                font-size: 9px;
+            }
+
+            .about,
+            .team,
+            .menu,
+            .experience,
+            .testimonials,
+            .location,
+            .cta {
                 padding: 80px 24px;
             }
-            .hero h1 { font-size: 42px; }
-            .about-content h2,
-            .team-header h2,
-            .menu-header h2,
-            .experience-header h2,
-            .testimonials-header h2,
-            .location-header h2,
-            .cta h2 { font-size: 36px; }
-            .menu-grid { grid-template-columns: 1fr; }
-            .stats-inner { grid-template-columns: 1fr; }
-            .team-grid { grid-template-columns: 1fr; }
-            .experience-grid { grid-template-columns: 1fr; }
-            .gallery-grid { grid-template-columns: 1fr; }
-            .review-card { min-width: 100%; }
+
+            .stats {
+                padding: 60px 24px;
+            }
+
+            footer {
+                padding: 60px 24px 32px;
+            }
+
+            .about-inner {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .about-image-wrapper {
+                min-height: 400px;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .stats-inner {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-tabs {
+                gap: 12px;
+            }
+
+            .menu-tab {
+                padding: 10px 20px;
+                font-size: 12px;
+            }
+
+            .experience-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item {
+                height: 300px;
+            }
+
+            .review-card {
+                min-width: 100%;
+            }
+
+            .reviews-carousel {
+                gap: 20px;
+            }
+
+            .location-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .location-map {
+                height: 400px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .stat-number {
+                font-size: 44px;
+            }
+
+            .menu-card-image-wrapper {
+                height: 240px;
+            }
+
+            .gallery-item {
+                height: 260px;
+            }
         }
     </style>
 </head>
@@ -1222,7 +1469,12 @@
     <nav class="navbar" id="navbar">
         <div class="nav-inner">
             <a href="#" class="logo">Napoli</a>
-            <ul class="nav-links">
+            <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#about">Sobre</a></li>
                 <li><a href="#team">Equipa</a></li>
                 <li><a href="#menu">Menu</a></li>
@@ -1248,7 +1500,7 @@
     <section class="about scroll-reveal" id="about">
         <div class="about-inner">
             <div class="about-image-wrapper">
-                <img src="https://images.unsplash.com/photo-1579751626657-72bc17010498?w=900&q=90" alt="Chef" class="about-image">
+                <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&q=85" alt="Chef Pizzaiolo" class="about-image">
                 <div class="about-image-overlay">Desde 2010</div>
             </div>
             <div class="about-content">
@@ -1301,7 +1553,7 @@
             <div class="team-grid">
                 <div class="team-card">
                     <div class="team-photo">
-                        <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=600&q=90" alt="Chef Marco">
+                        <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=600&q=85" alt="Chef Marco">
                         <div class="team-overlay">
                             <div class="team-social">
                                 <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
@@ -1316,7 +1568,7 @@
 
                 <div class="team-card">
                     <div class="team-photo">
-                        <img src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?w=600&q=90" alt="Chef Sofia">
+                        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=85" alt="Chef Sofia">
                         <div class="team-overlay">
                             <div class="team-social">
                                 <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
@@ -1331,7 +1583,7 @@
 
                 <div class="team-card">
                     <div class="team-photo">
-                        <img src="https://images.unsplash.com/photo-1595273670150-bd0c3c392e46?w=600&q=90" alt="Pizzaiolo Luigi">
+                        <img src="https://images.unsplash.com/photo-1581299894007-aaa50297cf16?w=600&q=85" alt="Pizzaiolo Luigi">
                         <div class="team-overlay">
                             <div class="team-social">
                                 <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
@@ -1346,7 +1598,7 @@
 
                 <div class="team-card">
                     <div class="team-photo">
-                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=600&q=90" alt="Ana">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=85" alt="Ana">
                         <div class="team-overlay">
                             <div class="team-social">
                                 <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
@@ -1403,7 +1655,7 @@
                 <div class="menu-grid">
                     <div class="menu-card">
                         <div class="menu-card-image-wrapper">
-                            <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=700&q=90" alt="Margherita">
+                            <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=700&q=85" alt="Margherita">
                             <div class="menu-card-badge">Favorita</div>
                         </div>
                         <div class="menu-card-content">
@@ -1414,7 +1666,7 @@
                     </div>
                     <div class="menu-card">
                         <div class="menu-card-image-wrapper">
-                            <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?w=700&q=90" alt="Quattro Formaggi">
+                            <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?w=700&q=85" alt="Quattro Formaggi">
                         </div>
                         <div class="menu-card-content">
                             <h3>Quattro Formaggi</h3>
@@ -1424,7 +1676,7 @@
                     </div>
                     <div class="menu-card">
                         <div class="menu-card-image-wrapper">
-                            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=700&q=90" alt="Diavola">
+                            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=700&q=85" alt="Diavola">
                             <div class="menu-card-badge">Picante</div>
                         </div>
                         <div class="menu-card-content">
@@ -1440,7 +1692,7 @@
                 <div class="menu-grid">
                     <div class="menu-card">
                         <div class="menu-card-image-wrapper">
-                            <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=700&q=90" alt="Carbonara">
+                            <img src="https://images.unsplash.com/photo-1612874742237-6526221588e3?w=700&q=85" alt="Carbonara">
                             <div class="menu-card-badge">Clássica</div>
                         </div>
                         <div class="menu-card-content">
@@ -1451,7 +1703,7 @@
                     </div>
                     <div class="menu-card">
                         <div class="menu-card-image-wrapper">
-                            <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=700&q=90" alt="Lasagna">
+                            <img src="https://images.unsplash.com/photo-1619895092538-128341789043?w=700&q=85" alt="Lasagna">
                         </div>
                         <div class="menu-card-content">
                             <h3>Lasagna</h3>
@@ -1461,7 +1713,7 @@
                     </div>
                     <div class="menu-card">
                         <div class="menu-card-image-wrapper">
-                            <img src="https://images.unsplash.com/photo-1612927601601-6638404737ce?w=700&q=90" alt="Arrabbiata">
+                            <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=700&q=85" alt="Arrabbiata">
                         </div>
                         <div class="menu-card-content">
                             <h3>Arrabbiata</h3>
@@ -1476,7 +1728,7 @@
                 <div class="menu-grid">
                     <div class="menu-card">
                         <div class="menu-card-image-wrapper">
-                            <img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=700&q=90" alt="Vinho">
+                            <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=700&q=85" alt="Vinho">
                         </div>
                         <div class="menu-card-content">
                             <h3>Chianti Classico</h3>
@@ -1486,7 +1738,7 @@
                     </div>
                     <div class="menu-card">
                         <div class="menu-card-image-wrapper">
-                            <img src="https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=700&q=90" alt="Prosecco">
+                            <img src="https://images.unsplash.com/photo-1547595628-c61a29f496f0?w=700&q=85" alt="Prosecco">
                         </div>
                         <div class="menu-card-content">
                             <h3>Prosecco DOC</h3>
@@ -1496,7 +1748,7 @@
                     </div>
                     <div class="menu-card">
                         <div class="menu-card-image-wrapper">
-                            <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=700&q=90" alt="Espresso">
+                            <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=700&q=85" alt="Espresso">
                         </div>
                         <div class="menu-card-content">
                             <h3>Espresso</h3>
@@ -1511,7 +1763,7 @@
                 <div class="menu-grid">
                     <div class="menu-card">
                         <div class="menu-card-image-wrapper">
-                            <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=700&q=90" alt="Tiramisu">
+                            <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=700&q=85" alt="Tiramisu">
                             <div class="menu-card-badge">Top</div>
                         </div>
                         <div class="menu-card-content">
@@ -1522,7 +1774,7 @@
                     </div>
                     <div class="menu-card">
                         <div class="menu-card-image-wrapper">
-                            <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=700&q=90" alt="Gelato">
+                            <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=700&q=85" alt="Gelato">
                         </div>
                         <div class="menu-card-content">
                             <h3>Gelato</h3>
@@ -1532,7 +1784,7 @@
                     </div>
                     <div class="menu-card">
                         <div class="menu-card-image-wrapper">
-                            <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=700&q=90" alt="Panna Cotta">
+                            <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=700&q=85" alt="Panna Cotta">
                         </div>
                         <div class="menu-card-content">
                             <h3>Panna Cotta</h3>
@@ -1590,35 +1842,35 @@
     <section class="gallery scroll-reveal">
         <div class="gallery-grid">
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=90" alt="1">
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=85" alt="Ambiente">
                 <div class="gallery-overlay">Ambiente</div>
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=800&q=90" alt="2">
+                <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=800&q=85" alt="Pizzas">
                 <div class="gallery-overlay">Pizzas</div>
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1590534247854-e973a54d0f53?w=800&q=90" alt="3">
+                <img src="https://images.unsplash.com/photo-1590534247854-e973a54d0f53?w=800&q=85" alt="Chefs">
                 <div class="gallery-overlay">Chefs</div>
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=90" alt="4">
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=85" alt="Experiência">
                 <div class="gallery-overlay">Experiência</div>
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1571407970349-bc81e7e96a47?w=800&q=90" alt="5">
+                <img src="https://images.unsplash.com/photo-1571407970349-bc81e7e96a47?w=800&q=85" alt="Detalhes">
                 <div class="gallery-overlay">Detalhes</div>
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=800&q=90" alt="6">
+                <img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?w=800&q=85" alt="Tradição">
                 <div class="gallery-overlay">Tradição</div>
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1579751626657-72bc17010498?w=800&q=90" alt="7">
+                <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&q=85" alt="Arte">
                 <div class="gallery-overlay">Arte</div>
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?w=800&q=90" alt="8">
+                <img src="https://images.unsplash.com/photo-1604382355076-af4b0eb60143?w=800&q=85" alt="Sabor">
                 <div class="gallery-overlay">Sabor</div>
             </div>
         </div>
@@ -1654,7 +1906,7 @@
                                 <p class="review-date">Há 2 semanas</p>
                             </div>
                         </div>
-                        <p class="review-text">"Sem dúvida a melhor pizza italiana que já provei em Portugal!"</p>
+                        <p class="review-text">"Sem dúvida a melhor pizza italiana que já provei em Portugal! Massa perfeita, ingredientes autênticos."</p>
                         <div class="google-badge">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                             Publicado no Google
@@ -1669,7 +1921,7 @@
                                 <p class="review-date">Há 1 mês</p>
                             </div>
                         </div>
-                        <p class="review-text">"Ambiente familiar e acolhedor. Serviço impecável!"</p>
+                        <p class="review-text">"Ambiente familiar e acolhedor. Serviço impecável e comida divinal. Voltaremos certamente!"</p>
                         <div class="google-badge">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                             Publicado no Google
@@ -1684,7 +1936,7 @@
                                 <p class="review-date">Há 3 semanas</p>
                             </div>
                         </div>
-                        <p class="review-text">"Autenticidade italiana genuína! Complimenti!"</p>
+                        <p class="review-text">"Autenticidade italiana genuína! Como estar em Nápoles. Complimenti al chef!"</p>
                         <div class="google-badge">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                             Publicado no Google
@@ -1699,7 +1951,7 @@
                                 <p class="review-date">Há 1 semana</p>
                             </div>
                         </div>
-                        <p class="review-text">"Carbonara divinal! Voltarei com certeza!"</p>
+                        <p class="review-text">"Carbonara divinal! A melhor que comi fora de Itália. Equipa super simpática."</p>
                         <div class="google-badge">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                             Publicado no Google
@@ -1760,28 +2012,45 @@
             <div class="footer-grid">
                 <div class="footer-section">
                     <h3>Napoli Pizzaria</h3>
-                    <p>Tradição italiana desde 2010.</p>
+                    <p>Tradição italiana desde 2010. Autêntica pizza napolitana no coração de Tagus.</p>
                 </div>
                 <div class="footer-section">
                     <h3>Links</h3>
-                    <p>Sobre<br>Menu<br>Reservas</p>
+                    <p>Sobre<br>Menu<br>Reservas<br>Contacto</p>
                 </div>
                 <div class="footer-section">
                     <h3>Serviços</h3>
-                    <p>Take Away<br>Delivery<br>Eventos</p>
+                    <p>Take Away<br>Delivery<br>Eventos Privados<br>Catering</p>
                 </div>
                 <div class="footer-section">
                     <h3>Contacto</h3>
-                    <p>Rua Principal, 123<br>Tagus<br>+351 XXX XXX XXX</p>
+                    <p>Rua Principal, 123<br>Tagus, Portugal<br>+351 XXX XXX XXX<br>info@napolipizzaria.pt</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Napoli Pizzaria. Website por João Alfar</p>
+                <p>&copy; 2025 Napoli Pizzaria. Todos os direitos reservados. Website por João Alfar</p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
         // Navbar scroll
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
@@ -1835,7 +2104,7 @@
                     statsObserver.unobserve(entry.target);
                 }
             });
-        });
+        }, { threshold: 0.5 });
         statItems.forEach(item => statsObserver.observe(item));
 
         // Menu tabs
@@ -1855,13 +2124,20 @@
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
         let currentIndex = 0;
-        const cardsToShow = window.innerWidth > 968 ? 3 : (window.innerWidth > 640 ? 2 : 1);
+        
+        function getCardsToShow() {
+            if (window.innerWidth > 1024) return 3;
+            if (window.innerWidth > 768) return 2;
+            return 1;
+        }
+
         const totalCards = document.querySelectorAll('.review-card').length;
-        const maxIndex = totalCards - cardsToShow;
 
         function updateCarousel() {
+            const cardsToShow = getCardsToShow();
+            const maxIndex = totalCards - cardsToShow;
             const cardWidth = document.querySelector('.review-card').offsetWidth;
-            const gap = 32;
+            const gap = window.innerWidth > 768 ? 28 : 20;
             const offset = -(currentIndex * (cardWidth + gap));
             carousel.style.transform = `translateX(${offset}px)`;
             prevBtn.disabled = currentIndex === 0;
@@ -1876,6 +2152,8 @@
         });
 
         nextBtn.addEventListener('click', () => {
+            const cardsToShow = getCardsToShow();
+            const maxIndex = totalCards - cardsToShow;
             if (currentIndex < maxIndex) {
                 currentIndex++;
                 updateCarousel();
